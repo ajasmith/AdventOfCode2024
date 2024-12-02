@@ -36,29 +36,19 @@ def safe_report(report, skip_index):
 def safe_report_part1(report):
     return safe_report(report, -1)
 
-def run_part1(path):
-    reports = helpers.parse_to_int_lists(path)
-    safe = list(filter(safe_report_part1, reports))
-    print(len(safe))
-
-run_part1("test_data/day2.txt")
-run_part1("data/day2.txt")
-
-
 def safe_report_part2(report):
-    if (safe_report(report, -1)):
-        return True
-    
-    for i in range(0, len(report)):
+    for i in range(-1, len(report)):
         if (safe_report(report, i)):
-            return True
-    
+            return True   
     return False
 
-def run_part2(path):
+def run(path, part):
     reports = helpers.parse_to_int_lists(path)
-    safe = list(filter(safe_report_part2, reports))
+    predicate = safe_report_part1 if part == 1 else safe_report_part2
+    safe = list(filter(predicate, reports))
     print(len(safe))
 
-run_part2("test_data/day2.txt")
-run_part2("data/day2.txt")
+run("test_data/day2.txt", 1)
+run("data/day2.txt", 1)
+run("test_data/day2.txt", 2)
+run("data/day2.txt", 2)
