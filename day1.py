@@ -1,13 +1,9 @@
-def open_file(path):
-    with open(path, "r") as file:
-        data = file.readlines()
-        return data
+import helpers
 
 def parse(path):
-    lines = open(path)
-    data = list(map(str.split, lines))
-    c1 = list(map(lambda x: int(x[0]), data))
-    c2 = list(map(lambda x: int(x[1]), data))
+    data = helpers.parse_to_int_lists(path)
+    c1 = list(map(lambda x: x[0], data))
+    c2 = list(map(lambda x: x[1], data))
     return (c1, c2)
 
 def run_part1(path):

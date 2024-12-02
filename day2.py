@@ -1,14 +1,4 @@
-def open_file(path):
-    with open(path, "r") as file:
-        data = file.readlines()
-        return data
-
-def parse(path):
-    lines = open(path)
-    data = list(map(str.split, lines))    
-    reports = list(map(lambda x: list(map(int, x)), data))
-
-    return reports
+import helpers
 
 def next_is_safe(prev, curr, next):
     is_same_drn = (prev < 0) or ((next-curr) * (curr-prev) > 0)
@@ -47,7 +37,7 @@ def safe_report_part1(report):
     return safe_report(report, -1)
 
 def run_part1(path):
-    reports = parse(path)
+    reports = helpers.parse_to_int_lists(path)
     safe = list(filter(safe_report_part1, reports))
     print(len(safe))
 
@@ -66,7 +56,7 @@ def safe_report_part2(report):
     return False
 
 def run_part2(path):
-    reports = parse(path)
+    reports = helpers.parse_to_int_lists(path)
     safe = list(filter(safe_report_part2, reports))
     print(len(safe))
 
