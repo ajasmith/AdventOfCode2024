@@ -43,7 +43,7 @@ def run_part2(path):
 
     return score    
 
-print(run_part1("data/day1_test.txt"))
+print(run_part1("test_data/day1.txt"))
 print(run_part1("data/day1.txt"))
-print(run_part2("data/day1_test.txt"))
+print(run_part2("test_data/day1.txt"))
 print(run_part2("data/day1.txt"))
