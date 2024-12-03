@@ -24,7 +24,7 @@ def run_part1(path):
 def run_part2(path):
     print(run(path, r"mul\((\d+),(\d+)\)|(do(?:n't)?)\(\)"))
 
-run_part1("test_data/day3.txt")
+run_part1("test/day3.txt")
 run_part1("data/day3.txt")
-run_part2("test_data/day3.txt")
+run_part2("test/day3.txt")
 run_part2("data/day3.txt")

@@ -48,7 +48,7 @@ def run(path, part):
     safe = list(filter(predicate, reports))
     print(len(safe))
 
-run("test_data/day2.txt", 1)
+run("test/day2.txt", 1)
 run("data/day2.txt", 1)
-run("test_data/day2.txt", 2)
+run("test/day2.txt", 2)
 run("data/day2.txt", 2)
