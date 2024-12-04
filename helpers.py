@@ -22,4 +22,4 @@ def parse_to_char_array(path):
         for x in range(0,w):
             arr[x,y] = line[x]
         y += 1
-    return arr
+    return arr, w, h
