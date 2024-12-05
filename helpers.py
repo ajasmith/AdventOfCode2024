@@ -16,7 +16,7 @@ def parse_to_char_array(path):
     w = len(lines[0])
     h = len(lines)
 
-    arr = numpy.empty((w,h), numpy.character)
+    arr = numpy.empty((w,h), dtype='|S1')
     y = 0
     for line in lines:
         for x in range(0,w):
