@@ -13,10 +13,10 @@ def parse_to_int_lists(path):
 
 def parse_to_char_array(path):
     lines = open_file(path)
-    w = len(lines[0])
     h = len(lines)
+    w = len(lines[0]) if h > 0 else 0
 
-    arr = numpy.empty((w,h), dtype='|S1')
+    arr = numpy.empty((w,h), dtype='|S1', order='F')
     y = 0
     for line in lines:
         for x in range(0,w):
