@@ -38,7 +38,7 @@ def part1(path):
     for y in range(0,h):
         for x in range(0,w):
             count += count_XMASs_at_pos(arr,x,y,w,h)
-    print(count)
+    return count
 
 def part2(path):
     arr, w, h = helpers.parse_to_char_array(path)
@@ -46,9 +46,9 @@ def part2(path):
     for y in range(1, h-1):
         for x in range(1, w-1):
             count += check_for_X_at_position(arr, x,y)
-    print(count)
+    return count
 
-part1("test/day4.txt")
-part1("data/day4.txt")
-part2("test/day4.txt")
-part2("data/day4.txt")
+print(part1("test/day4.txt"))
+print(part1("data/day4.txt"))
+print(part2("test/day4.txt"))
+print(part2("data/day4.txt"))

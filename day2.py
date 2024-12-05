@@ -46,9 +46,9 @@ def run(path, part):
     reports = helpers.parse_to_int_lists(path)
     predicate = safe_report_part1 if part == 1 else safe_report_part2
     safe = list(filter(predicate, reports))
-    print(len(safe))
+    return len(safe)
 
-run("test/day2.txt", 1)
-run("data/day2.txt", 1)
-run("test/day2.txt", 2)
-run("data/day2.txt", 2)
+print(run("test/day2.txt", 1))
+print(run("data/day2.txt", 1))
+print(run("test/day2.txt", 2))
+print(run("data/day2.txt", 2))

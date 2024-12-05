@@ -2,7 +2,7 @@ import numpy
 
 def open_file(path):
     with open(path, "r") as file:
-        data = file.readlines()
+        data = list(map(lambda s: s.replace('\n', ''), file.readlines()))
         return data
 
 def parse_to_int_lists(path):
@@ -13,7 +13,7 @@ def parse_to_int_lists(path):
 
 def parse_to_char_array(path):
     lines = open_file(path)
-    w = len(lines[0]) - 1
+    w = len(lines[0])
     h = len(lines)
 
     arr = numpy.empty((w,h), numpy.character)

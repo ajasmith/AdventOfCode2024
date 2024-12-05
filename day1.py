@@ -6,7 +6,7 @@ def parse(path):
     c2 = list(map(lambda x: x[1], data))
     return (c1, c2)
 
-def run_part1(path):
+def part1(path):
     c1, c2 = parse(path)
     c1.sort()
     c2.sort()
@@ -18,7 +18,7 @@ def run_part1(path):
 
     return total
 
-def run_part2(path):
+def part2(path):
     c1, c2 = parse(path)
     c2.sort()
     
@@ -39,7 +39,7 @@ def run_part2(path):
 
     return score    
 
-print(run_part1("test/day1.txt"))
-print(run_part1("data/day1.txt"))
-print(run_part2("test/day1.txt"))
-print(run_part2("data/day1.txt"))
+print(part1("test/day1.txt"))
+print(part1("data/day1.txt"))
+print(part2("test/day1.txt"))
+print(part2("data/day1.txt"))

@@ -18,13 +18,13 @@ def run(path, search):
                 total += int(p[0]) * int(p[1])
     return total
 
-def run_part1(path):
-    print(run(path, r"mul\((\d+),(\d+)\)"))
+def part1(path):
+    return run(path, r"mul\((\d+),(\d+)\)")
 
-def run_part2(path):
-    print(run(path, r"mul\((\d+),(\d+)\)|(do(?:n't)?)\(\)"))
+def part2(path):
+    return run(path, r"mul\((\d+),(\d+)\)|(do(?:n't)?)\(\)")
 
-run_part1("test/day3.txt")
-run_part1("data/day3.txt")
-run_part2("test/day3.txt")
-run_part2("data/day3.txt")
+print(part1("test/day3.txt"))
+print(part1("data/day3.txt"))
+print(part2("test/day3.txt"))
+print(part2("data/day3.txt"))
