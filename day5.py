@@ -34,16 +34,11 @@ def check_and_fix(rules, update):
 
 def run(path):
     rules, updates = parse_input(path)
-    score1 = 0
-    score2 = 0
+    scores = [0, 0]
     for u in updates:
         ok, u = check_and_fix(rules, u)
-        score = u[len(u) // 2]
-        if ok:
-            score1 += score
-        else:
-            score2 += score
-    return score1, score2
+        scores[0 if ok else 1] += u[len(u) // 2]
+    return scores
 
 if __name__ == '__main__':
     print(run("test/day5.txt"))
