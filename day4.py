@@ -48,7 +48,8 @@ def part2(path):
             count += check_for_X_at_position(arr, x,y)
     return count
 
-print(part1("test/day4.txt"))
-print(part1("data/day4.txt"))
-print(part2("test/day4.txt"))
-print(part2("data/day4.txt"))
+if __name__ == '__main__':
+    print(part1("test/day4.txt"))
+    print(part1("data/day4.txt"))
+    print(part2("test/day4.txt"))
+    print(part2("data/day4.txt"))

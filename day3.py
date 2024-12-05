@@ -24,7 +24,8 @@ def part1(path):
 def part2(path):
     return run(path, r"mul\((\d+),(\d+)\)|(do(?:n't)?)\(\)")
 
-print(part1("test/day3.txt"))
-print(part1("data/day3.txt"))
-print(part2("test/day3.txt"))
-print(part2("data/day3.txt"))
+if __name__ == '__main__':
+    print(part1("test/day3.txt"))
+    print(part1("data/day3.txt"))
+    print(part2("test/day3.txt"))
+    print(part2("data/day3.txt"))

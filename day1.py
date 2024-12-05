@@ -39,7 +39,8 @@ def part2(path):
 
     return score    
 
-print(part1("test/day1.txt"))
-print(part1("data/day1.txt"))
-print(part2("test/day1.txt"))
-print(part2("data/day1.txt"))
+if __name__ == '__main__':
+    print(part1("test/day1.txt"))
+    print(part1("data/day1.txt"))
+    print(part2("test/day1.txt"))
+    print(part2("data/day1.txt"))

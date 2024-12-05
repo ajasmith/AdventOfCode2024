@@ -48,7 +48,8 @@ def run(path, part):
     safe = list(filter(predicate, reports))
     return len(safe)
 
-print(run("test/day2.txt", 1))
-print(run("data/day2.txt", 1))
-print(run("test/day2.txt", 2))
-print(run("data/day2.txt", 2))
+if __name__ == '__main__':
+    print(run("test/day2.txt", 1))
+    print(run("data/day2.txt", 1))
+    print(run("test/day2.txt", 2))
+    print(run("data/day2.txt", 2))
