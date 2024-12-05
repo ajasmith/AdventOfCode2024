@@ -3,6 +3,7 @@ import day1
 import day2
 import day3
 import day4
+import day5
 
 class validate_previous_days(unittest.TestCase):
     def day1(self):
@@ -29,12 +30,17 @@ class validate_previous_days(unittest.TestCase):
         self.assertEqual(day4.part2("test/day4.txt"), 9)
         self.assertEqual(day4.part2("data/day4.txt"), 1967)
 
+    def day5(self):
+        self.assertEqual(day5.run("test/day5.txt"), (143, 123))
+        self.assertEqual(day5.run("data/day5.txt"), (6242, 5169))
+
 def tests():
     tests = unittest.TestSuite()
     tests.addTest(validate_previous_days('day1'))
     tests.addTest(validate_previous_days('day2'))
     tests.addTest(validate_previous_days('day3'))
     tests.addTest(validate_previous_days('day4'))
+    tests.addTest(validate_previous_days('day5'))
     return tests
 
 runner = unittest.TextTestRunner()
