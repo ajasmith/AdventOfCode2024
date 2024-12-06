@@ -36,31 +36,6 @@ def in_bounds(guard, w, h):
     x, y, _ = guard
     return x >= 0 and y >= 0 and x < w and y < h
 
-def draw(route, obstacle, w, h):
-    def calc_range(idx, lim):
-        v = list(map(lambda r: r[idx], route))
-        return (max([min(v)-1,0]), min([max(v)+1, lim-1]))
-    xr = calc_range(0, w)
-    yr = calc_range(1, h)
-
-    m = ["." * (xr[1]-xr[0] + 1)] * (yr[1] - yr[0] + 1)
-
-    def put_char(x, y, c):
-        if x >= xr[0] and x <= xr[1] and y >= yr[0] and y <= yr[1]:
-            px = x - xr[0]
-            py = yr[1] - y
-            old = m[py]
-            m[py] = old[:px] + c + old[px+1:]
-
-    for r in route:
-        put_char(r[0], r[1], r[2].decode('ascii'))
-
-    for o in obstacle:
-        put_char(o[0], o[1], "#")
-
-    for s in m:
-        print(s)
-
 def run_route(g, obstacles, w, h):
     route = list()
     circular = False
