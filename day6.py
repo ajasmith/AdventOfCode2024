@@ -4,7 +4,6 @@ import helpers
 turn_map = {b'^': b'>', b'>': b'v', b'v': b'<', b'<': b'^'}
 fwd_map = {b'^': 1, b'>': 1000, b'v': -1, b'<': -1000}
 
-# Failed attempt to make set lookup faster by moving from tuples to ints
 def pos_to_int(x,y):
     return x * 1000 + y
 
@@ -44,38 +43,35 @@ def in_bounds(guard, w, h):
     x, y = int_to_pos(p)
     return x >= 0 and y >= 0 and x < w and y < h
 
-def run_route(g, obstacles, w, h):
-    route = list()
-    circular = False
-    while in_bounds(g, w, h) and not circular:
-        if g in route:
-            circular = True
+def is_circular(g, obstacles, extra, w, h):
+    visited = set()
+    o = obstacles.union({extra})
+    while in_bounds(g, w, h):
+        if g in visited:
+            return True
         else:
-            route.append(g)
-            g = move_guard(g, obstacles)
-    return route, circular
+            visited.add(g)
+            g = move_guard(g, o)
+    return False
 
 def run(path):
     g, o, w, h = parse_input(path)
-
-    # part 1
-    route, _ = run_route(g, o, w, h)
-    visited = set(map(lambda g: g[0], route))
-
-    # part 2
-    loop_count = 0
-    for new_obstacle in visited:
-        if new_obstacle == g[0]:
-            continue
-
-        _, circular = run_route(g, o.union({new_obstacle}), w, h)
     
-        if (circular):
-            loop_count += 1
+    visited = set()
+    circular_count = 0
 
-    return len(visited), loop_count
+    while in_bounds(g, w, h):
+        visited.add(g[0])
+        fwd = forward(g)
+        if (fwd[0]) in o:
+            g = turn(g)
+        else:
+            if fwd[0] not in visited and is_circular(turn(g), o, fwd[0], w, h):
+                circular_count += 1
+            g = fwd
+
+    return len(visited), circular_count
 
 if __name__ == '__main__':
-    for i in range(0,20):
-        print(run("test/day6.txt"))
-    #print(run("data/day6.txt"))
+    print(run("test/day6.txt"))
+    print(run("data/day6.txt"))
