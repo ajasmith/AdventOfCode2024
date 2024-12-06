@@ -16,10 +16,10 @@ def parse_to_char_array(path):
     h = len(lines)
     w = len(lines[0]) if h > 0 else 0
 
-    arr = numpy.empty((w,h), dtype='|S1', order='F')
+    arr = numpy.empty((w,h), dtype='|S1')
     y = 0
     for line in lines:
         for x in range(0,w):
             arr[x,y] = line[x]
         y += 1
-    return arr, w, h
+    return numpy.flip(arr, 1), w, h
