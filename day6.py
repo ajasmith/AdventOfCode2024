@@ -1,4 +1,3 @@
-from datetime import *
 import helpers
 
 turn_map = {b'^': b'>', b'>': b'v', b'v': b'<', b'<': b'^'}
