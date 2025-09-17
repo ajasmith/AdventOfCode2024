@@ -7,6 +7,8 @@ import day5
 import day6
 import day7
 import day8
+import day9
+import day10
 
 class validate_previous_days(unittest.TestCase):
     def test_day1(self):
@@ -64,6 +66,18 @@ class validate_previous_days(unittest.TestCase):
 
     def test_day8_real_data(self):
         self.assertEqual(day8.run("data/day8.txt"), (348, 1221))
+
+    def test_day9(self):
+        self.assertEqual(day9.run("test/day9.txt"), (1928, 2858))
+
+    def test_day9_real_data(self):
+        self.assertEqual(day9.run("data/day9.txt"), (6216544403458, 6237075041489))
+
+    def test_day10(self):
+        self.assertEqual(day10.run("test/day10.txt"), (36, 81))
+
+    def test_day10_real_data(self):
+        self.assertEqual(day10.run("data/day10.txt"), (552, 1225))
 
 if __name__ == '__main__':
     unittest.main()
